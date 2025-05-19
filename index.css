@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #f8f9fa;
+    padding: 2rem 1rem;
+    border-right: 1px solid #dee2e6;
+}
+
+.sidebar .user {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 3rem;
+}
+
+.sidebar .user img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+}
+
+.main-content {
+    margin-left: 250px;
+    padding: 2rem;
+}
+
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
