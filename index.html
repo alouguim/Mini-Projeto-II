@@ -17,8 +17,8 @@
 
     <div class="sidebar">
         <div class="user">
-            <img src="images/icone.jpg" alt="Foto de perfil" />
-            <strong>Kafka</strong>
+            <img src="images/icone.jpg" alt="Foto de perfil" onclick ="mostrarSecao('index')" style="cursor: pointer;"/>
+            <strong onclick ="mostrarSecao('index')" style="cursor: pointer;">Kafka</strong>
             <small class="text-muted"><i class="bi bi-bell"></i> Notificações</small>
         </div>
 
@@ -33,19 +33,46 @@
                     <i class="bi bi-calendar-day me-2"></i> Hoje
                 </a>
             </li>
+            
             <li class="nav-item">
                 <a class="nav-link text-dark" href="#" onclick="mostrarSecao('embreve')">
                     <i class="bi bi-clock me-2"></i> Em breve
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" href="#" onclick="mostrarSecao('atrasadas')">
+                    <i class="bi bi-hourglass-bottom"></i> Atrasadas
                 </a>
             </li>
         </ul>
     </div>
 
     <div class="main-content">
-        <div id="hoje" class="section active">
-            <h1 class="mb-3">Bem vindo!</h1>
-            <p class="lead">Você não tem tarefas</p>
-            <button class="btn btn-primary mt-3"><i class="bi bi-plus-lg me-1"></i> Criar tarefa</button>
+        <div id="index" class="section active">
+            <h1>Bem vinda!</h1>
+            <h2 class="mb-3">Todas as tarefas</h2>
+            <div class="mb-3">
+                <label for="filtroOrdenacao" class="form-label">Ordenar por:</label>
+                <select id="filtroOrdenacao" class="form-select" onchange="atualizarListas()">
+                  <option value="dataCriacao">Data de Criação</option>
+                  <option value="dataTarefa">Data da Tarefa</option>
+                  <option value="prioridade">Prioridade</option>
+                  <option value="titulo">Descrição (A-Z)</option>
+                </select>
+            </div>
+
+            <div id="tarefasHoje">
+                <h4 class="text-primary">✅ Hoje</h4>
+                <ul class="list-group mb-4"></ul>
+            </div>
+            <div id="tarefasAtrasadas">
+                <h4 class="text-danger">⏰ Atrasadas</h4>
+                <ul class="list-group mb-4"></ul>
+            </div>
+            <div id="tarefasEmBreve">
+                <h4 class="text-warning">🕓 Em breve</h4>
+                <ul class="list-group mb-4"></ul>
+            </div>
         </div>
 
         <div id="adicionar" class="section">
@@ -100,17 +127,26 @@
             </div>
         </div>
 
+        <div id="hoje" class="section">
+            <h2>Tarefas de Hoje</h2>
+            <p>Essas tarefas estão agendadas para hoje.</p>
+            <ul id="listaHoje" class="list-group"></ul>
+        </div>
+
         <div id="embreve" class="section">
             <h2>Em breve</h2>
             <p>Essas tarefas estão agendadas para os próximos dias.</p>
-            <ul>
-                <li>Estudar lógica de programação</li>
-                <li>Atualizar currículo</li>
-                <li>Ler documentação do Bootstrap</li>
-            </ul>
+            <ul id="listaEmBreve" class="list-group"></ul>
+        </div>
+        
+        <div id="atrasadas" class="section">
+            <h2>Tarefas Atrasadas</h2>
+            <p>Essas tarefas estão com a data expirada.</p>
+            <ul id="listaAtrasadas" class="list-group"></ul>    
         </div>
     </div>
     <script src="script.js"></script>
+    
 </body>
 
 </html>
