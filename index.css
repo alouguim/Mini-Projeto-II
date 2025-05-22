@@ -2,8 +2,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', sans-serif;
-    background-color: #f3f0fa; /* Fundo levemente lilás */
-    color: #3b2e5a; /* Texto roxo escuro */
+    background-color: #f3f0fa;
+    color: #3b2e5a; 
 }
 
 .sidebar {
